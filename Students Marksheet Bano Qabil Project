@@ -1,1 +1,40 @@
+print("Marksheet of Bano Qabil Students\n")
+def generate_marksheet(student_name, english_marks, urdu_marks, math_marks, cs_marks):
+    print(f"{student_name}'s Marksheet:")
 
+    # Calculate total marks and percentage
+    total_marks = 400  # Assuming each subject has a maximum of 100 marks
+    obtained_marks = english_marks + urdu_marks + math_marks + cs_marks
+    percentage = (obtained_marks / total_marks) * 100
+
+    # Assign grades based on percentage
+    if percentage >= 90:
+        grade = 'A+'
+    elif 80 <= percentage < 90:
+        grade = 'A'
+    elif 70 <= percentage < 80:
+        grade = 'B'
+    elif 60 <= percentage < 70:
+        grade = 'C'
+    else:
+        grade = 'D'
+
+    # Display student's information
+    print(f"Total Marks: {obtained_marks} out of {total_marks}")
+    print(f"Percentage: {percentage:.2f}%")
+    print(f"Grade: {grade}\n")
+
+if __name__ == "__main__":
+    # Name of students
+    students = ["Ali", "Zubair", "Ahmed", "Zaheer", "Usman", "Farhan", "Bilal", "Salman", "Kamran", "Zain"]
+
+    # Input subject marks for each student
+    for student_name in students:
+        print(f"Enter subject marks for {student_name}:")
+        english_marks = int(input("English Marks: "))
+        urdu_marks = int(input("Urdu Marks: "))
+        math_marks = int(input("Mathematics Marks: "))
+        cs_marks = int(input("Computer Science Marks: "))
+
+        # Generate marksheet for the student
+        generate_marksheet(student_name, english_marks, urdu_marks, math_marks, cs_marks)
